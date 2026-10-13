@@ -1,0 +1,67 @@
+{
+  "simulation": true,
+  "baseline": {
+    "rows": 500,
+    "minimum_rows": 200,
+    "sufficient_sample": true,
+    "warning_threshold": 0.1,
+    "alert_threshold": 0.2,
+    "psi": {
+      "gender": 0.006616868512719594,
+      "Partner": 0.004698308420144266,
+      "Dependents": 0.007418343649970998,
+      "PhoneService": 0.00561078161231535,
+      "MultipleLines": 0.006172903387055578,
+      "InternetService": 0.006337970859481292,
+      "OnlineSecurity": 0.007379876814139172,
+      "OnlineBackup": 0.005986369766860587,
+      "DeviceProtection": 0.01243445959465659,
+      "TechSupport": 0.006949980872099507,
+      "StreamingTV": 0.007268660619782071,
+      "StreamingMovies": 0.006251426792055776,
+      "Contract": 0.004694162656564153,
+      "PaperlessBilling": 0.004408902686214392,
+      "PaymentMethod": 0.010595275547368197,
+      "SeniorCitizen": 0.007470191773516452,
+      "tenure": 0.009759904324820734,
+      "MonthlyCharges": 0.012444716525289928,
+      "TotalCharges": 0.010609468526371155
+    },
+    "alerts": [],
+    "note": "Dérive des entrées uniquement ; aucune mesure de performance sans étiquettes."
+  },
+  "perturbed": {
+    "rows": 500,
+    "minimum_rows": 200,
+    "sufficient_sample": true,
+    "warning_threshold": 0.1,
+    "alert_threshold": 0.2,
+    "psi": {
+      "gender": 0.006616868512719594,
+      "Partner": 0.004698308420144266,
+      "Dependents": 0.007418343649970998,
+      "PhoneService": 0.00561078161231535,
+      "MultipleLines": 0.006172903387055578,
+      "InternetService": 0.006337970859481292,
+      "OnlineSecurity": 0.007379876814139172,
+      "OnlineBackup": 0.005986369766860587,
+      "DeviceProtection": 0.01243445959465659,
+      "TechSupport": 0.006949980872099507,
+      "StreamingTV": 0.007268660619782071,
+      "StreamingMovies": 0.006251426792055776,
+      "Contract": 2.4117215911721277,
+      "PaperlessBilling": 0.004408902686214392,
+      "PaymentMethod": 0.010595275547368197,
+      "SeniorCitizen": 0.007470191773516452,
+      "tenure": 5.667721441889772,
+      "MonthlyCharges": 5.482753689963887,
+      "TotalCharges": 0.010609468526371155
+    },
+    "alerts": [
+      "Contract",
+      "tenure",
+      "MonthlyCharges"
+    ],
+    "note": "Dérive des entrées uniquement ; aucune mesure de performance sans étiquettes."
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "url": "https://raw.githubusercontent.com/IBM/telco-customer-churn-on-icp4d/d5371f5d83a446ad5673cbcca3b814b926491f8a/data/Telco-Customer-Churn.csv",
+  "commit": "d5371f5d83a446ad5673cbcca3b814b926491f8a",
+  "sha256": "16320c9c1ec72448db59aa0a26a0b95401046bef5d02fd3aeb906448e3055e91",
+  "repository_license": "Apache-2.0",
+  "nature": "IBM public sample benchmark; not verified real customers"
+}

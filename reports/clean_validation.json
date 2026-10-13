@@ -1,0 +1,13 @@
+{
+  "fresh_venv_lock_install": true,
+  "pip_check": true,
+  "fresh_checkout_without_data_or_models": true,
+  "dataset_reacquired": true,
+  "full_training_executed": true,
+  "same_dataset_sha256": true,
+  "same_pipeline_sha256": true,
+  "same_test_metrics": true,
+  "saved_model_api_lifespan_and_batch": true,
+  "browser_download_matches_expected_20_rows": true,
+  "clean_model_version": "20261013T090834Z-d877322f"
+}

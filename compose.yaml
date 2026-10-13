@@ -1,0 +1,65 @@
+name: mlops-churn
+x-common: &common
+  image: mlops-churn:${IMAGE_TAG:-1.0.0}
+  build: .
+  environment: &environment
+    MODEL_ROOT: /app/models
+    MODEL_VERSION: ${MODEL_VERSION:-}
+    MONITOR_DB: /app/monitoring/events.sqlite
+    OMP_NUM_THREADS: "2"
+  volumes:
+    - ./models:/app/models:ro
+    - ./monitoring:/app/monitoring
+services:
+  api:
+    <<: *common
+    ports: ["127.0.0.1:8000:8000"]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+  ui:
+    <<: *common
+    restart: unless-stopped
+    environment:
+      <<: *environment
+      API_URL: http://api:8000
+    command: ["streamlit", "run", "app.py", "--server.address=0.0.0.0", "--server.port=8501", "--browser.gatherUsageStats=false"]
+    ports: ["127.0.0.1:8501:8501"]
+    depends_on:
+      api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8501/_stcore/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  mlflow:
+    <<: *common
+    restart: unless-stopped
+    command: ["mlflow", "server", "--host", "0.0.0.0", "--port", "5000", "--backend-store-uri", "sqlite:////app/tracking/mlflow.db", "--artifacts-destination", "/app/tracking/artifacts", "--serve-artifacts", "--allowed-hosts", "mlflow:5000,localhost:*,127.0.0.1:*"]
+    volumes: ["./tracking:/app/tracking"]
+    ports: ["127.0.0.1:5000:5000"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5000/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+  train:
+    <<: *common
+    profiles: ["training"]
+    environment:
+      <<: *environment
+      MLFLOW_TRACKING_URI: http://mlflow:5000
+    command: ["python", "-m", "churn.train"]
+    volumes:
+      - ./models:/app/models
+      - ./data:/app/data
+      - ./reports:/app/reports
+    depends_on:
+      mlflow:
+        condition: service_healthy

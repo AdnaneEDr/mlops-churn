@@ -1,0 +1,46 @@
+2026/10/13 09:01:28 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/10/13 09:01:28 INFO mlflow.store.db.utils: Updating database tables
+2026-10-13 09:01:28 INFO  [alembic.runtime.migration] Context impl SQLiteImpl.
+2026-10-13 09:01:28 INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+2026-10-13 09:01:28 INFO  [alembic.runtime.migration] Context impl SQLiteImpl.
+2026-10-13 09:01:28 INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+C:\Users\lenovo\Documents\Codex\2026-10-13\files-pasted-by-the-user-tu\.venv\Lib\site-packages\mlflow\types\utils.py:452: UserWarning: Hint: Inferred schema contains integer column(s). Integer columns in Python cannot represent missing values. If your input data contains missing values at inference time, it will be encoded as floats and will cause a schema enforcement error. The best way to avoid this problem is to infer the model schema based on a realistic data sample (training dataset) that includes missing values. Alternatively, you can declare integer columns as doubles (float64) whenever these columns may have missing values. See `Handling Integers With Missing Values <https://www.mlflow.org/docs/latest/models.html#handling-integers-with-missing-values>`_ for more details.
+  warnings.warn(
+2026/10/13 09:02:12 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/10/13 09:02:12 INFO mlflow.store.db.utils: Updating database tables
+2026-10-13 09:02:12 INFO  [alembic.runtime.migration] Context impl SQLiteImpl.
+2026-10-13 09:02:12 INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+Registered model 'telco-churn' already exists. Creating a new version of this model...
+Created version '2' of model 'telco-churn'.
+{
+  "version": "20261013T090154Z-796383b2",
+  "selected_model": "logistic",
+  "threshold": 0.17,
+  "test_metrics": {
+    "precision": 0.44813829787234044,
+    "recall": 0.9010695187165776,
+    "f1": 0.5985790408525755,
+    "roc_auc": 0.832444651114728,
+    "pr_auc": 0.6221281418519138,
+    "cost_per_customer": 0.42583392476933996,
+    "tn": 620,
+    "fp": 415,
+    "fn": 37,
+    "tp": 337
+  },
+  "data_sha256": "16320c9c1ec72448db59aa0a26a0b95401046bef5d02fd3aeb906448e3055e91",
+  "seed": 42,
+  "smoke": false,
+  "split_sizes": {
+    "train": 4225,
+    "validation": 1409,
+    "test": 1409
+  },
+  "run_id": "796383b2ed05498081f8a7f7d0e27c8b",
+  "best_parameters": {
+    "classifier__C": 1
+  },
+  "pipeline_sha256": "2c7b9fa9cad804199b3847e6adfb23167a59d92d1e64fbc8b9e05ea1273ea4b2",
+  "mlflow_model_uri": "models:/m-28e161a1254445378f4597eb9811d0cc",
+  "registry_version": "2"
+}

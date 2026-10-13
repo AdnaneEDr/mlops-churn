@@ -1,0 +1,19 @@
+{
+  "model_version": "20261013T090154Z-796383b2",
+  "api_health": true,
+  "streamlit_health": true,
+  "mlflow_health": true,
+  "individual_batch_equal": true,
+  "invalid_input_http_status": 422,
+  "csv_rows": 20,
+  "csv_export_roundtrip": true,
+  "streamlit_form_headless": true,
+  "streamlit_csv_headless": true,
+  "file_upload_check": "AppTest injecte les octets dans le même chemin de traitement ; pas de sélection manuelle via le dialogue du navigateur",
+  "example_prediction": {
+    "churn_probability": 0.09467866870341571,
+    "predicted_class": 0,
+    "threshold": 0.17,
+    "model_version": "20261013T090154Z-796383b2"
+  }
+}
