@@ -27,7 +27,7 @@ def main():
         assert client.get("http://127.0.0.1:8501/_stcore/health").status_code == 200
         assert client.get("http://127.0.0.1:5000/health").status_code == 200
     output = batch_from_csv(content)
-    exported = output.to_csv(index=False)
+    exported = output.to_csv(index=False, lineterminator="\n")
     Path("reports/demo_predictions.csv").write_text(exported, encoding="utf-8")
     assert len(pd.read_csv("reports/demo_predictions.csv")) == len(records)
     at = AppTest.from_file("app.py", default_timeout=30)
